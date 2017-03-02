@@ -48,7 +48,11 @@ if __name__ == "__main__":
     path1 = "U:\\***\\cap-articles_download\\"
     # final dir after converted
     path2 = "U:\\***\\cap-articles_download\\html\\"
- 
+    
+    # create html folder if it is not already existed
+    if not os.path.exists(path2):        
+        os.makedirs(path2)
+        
     # placegholder for .pdf files
     doc_list = []
     
