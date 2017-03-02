@@ -44,28 +44,30 @@ def readPDF(pdfFile):
 
 
 if __name__ == "__main__":
-    path1 = "U:\\pdfs\\"
-    path2 = "U:\\pdfs\\dir\\"
+    # pdf files dir
+    path1 = "U:\\***\\cap-articles_download\\"
+    # final dir after converted
+    path2 = "U:\\***\\cap-articles_download\\html\\"
+ 
+    # placegholder for .pdf files
+    doc_list = []
     
-## data = list(csv.DictReader(open("U:\\pdfs\\doc_list.csv", "r", encoding="UTF-8", errors="ignore")))    
-##    doc_list = []
-##    for row in data:
-##        doc = row['FILE'].strip()
-##        docs = doc + '.pdf'
-##        doc_list.append(docs)
-
-    doc_list = ['_cr15178.pdf']
+    # iterate through .pdf files from path1
+    for pdfFile in os.listdir(path1):
+        if pdfFile.endswith('.pdf'):
+            doc_list.append(pdfFile)
     
+    # iterate and process doc_list to html file
     for doc in doc_list:
         print("working with doc: {}".format(doc))
         fileHTML = doc.replace('pdf','html')
-        path1 = path1 + doc
+        pdfFile = path1 + doc
         
-        scrape = open(path1, 'rb')
+        scrape = open(pdfFile, 'rb')
         pdfFile = BytesIO(scrape.read())
         convertedPDF = readPDF(pdfFile)
-        path2 = path2 + fileHTML
-        fileConverted = open(path2, "wb")
+        htmlFile = path2 + fileHTML
+        fileConverted = open(htmlFile, "wb")
         fileConverted.write(convertedPDF)
         fileConverted.close()
         print("Done with file {}".format(fileHTML))
