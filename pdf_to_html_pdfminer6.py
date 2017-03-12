@@ -59,10 +59,11 @@ if __name__ == "__main__":
     if not os.path.exists(output):
         os.makedirs(output)
 
+    # process pdf to txt file save in /tmp
     processPdfToTxt()
 
-    #######################################
     # format txt file name to country name
-    #######################################
-
     changeNameToCountry()
+
+    # remove /tmp
+    shutil.rmtree(output)
