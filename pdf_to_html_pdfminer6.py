@@ -4,6 +4,21 @@ import subprocess
 import shutil
 
 
+def processPdfToTxt():
+    # check platform system Windows/Macs
+    xpdfPath = ''
+    if platform.system() == 'Windows':
+        xpdfPath = os.getcwd() + '\\xpdfbin-win-3.04\\bin64\\'
+    else:
+        xpdfPath = os.getcwd() + '\\xpdfbin-mac-3.04\\bin64\\'
+
+    # store .pdf files from input
+    doc_list = [pdf for pdf in os.listdir(input) if pdf.endswith('.pdf')]
+    # iterate and process doc_list to txt file
+    for doc in doc_list:
+        subprocess.call('pdftotext ' + input + doc + ' ' + output + doc.replace('.pdf', '.txt'), cwd=xpdfPath,
+                        shell=True)
+
 def changeNameToCountry():
     # clear/retrieve txt file
     txt_list = [txt for txt in os.listdir(output) if txt.endswith('.txt')]
@@ -26,28 +41,10 @@ def changeNameToCountry():
             if i > 4:
                 break
         fp.close()
-
         if not os.path.exists(newOutput):
             os.makedirs(newOutput)
 
         shutil.copy(output + f, newOutput + fileName + '.txt')
-
-
-def processPdfToTxt():
-    # check platform system Windows/Macs
-    xpdfPath = ''
-    if platform.system() == 'Windows':
-        xpdfPath = os.getcwd() + '\\xpdfbin-win-3.04\\bin64\\'
-    else:
-        xpdfPath = os.getcwd() + '\\xpdfbin-mac-3.04\\bin64\\'
-
-    # store .pdf files from input
-    doc_list = [pdf for pdf in os.listdir(input) if pdf.endswith('.pdf')]
-    # iterate and process doc_list to txt file
-    for doc in doc_list:
-        subprocess.call('pdftotext ' + input + doc + ' ' + output + doc.replace('.pdf', '.txt'), cwd=xpdfPath,
-                        shell=True)
-
 
 if __name__ == "__main__":
     # pdf files dir
