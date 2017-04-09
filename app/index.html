@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Economist Lexicon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/myUtils.js"></script>
+			<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+  
+		<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+			
+		
+	</head>
+	<body>
+
+		<!-- Content -->
+			<div id="content">
+				<div class="inner">
+
+					<!-- Post -->
+						<article class="box post post-excerpt">
+							<header>
+								<!--
+									Note: Titles and subtitles will wrap automatically when necessary, so don't worry
+									if they get too long. You can also remove the <p> entirely if you don't
+									need a subtitle.
+								-->
+								<h2 id="main_header" >1. Request </h2>
+								<div id="alphabet"> </div>
+							</header>
+							<div id="myBody">
+								<table id="myBodyTable" class='display' width="100%"> </table>
+							 </div>						
+						
+						</article>
+
+					<!-- Post -->
+						
+
+				</div>
+			</div>
+
+		<!-- Sidebar -->
+			<div id="sidebar">
+
+				<!-- Logo -->
+					<h1 id="logo"><a href="#">Economist Lexicon</a></h1>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="current" id="request_step" onclick="submitMyStep(this.id)">1. Request</li>
+							<li id="map_step" onclick="submitMyStep(this.id)">2. Map</li>
+							<li id="clean_step" onclick="submitMyStep(this.id)">3. Clean data</li>
+							<li id="display_step" onclick="submitMyStep(this.id)">4. Display</li>
+						</ul>
+					</nav>
+
+				<!-- Search -->
+					<section class="box search">
+						<form method="get" action="/cgi-bin/python-cgi.py">
+							<input type="text" class="text" name="first_name" placeholder="Search" />
+							<input type="submit" value="Search" />
+						</form>
+					</section>
+
+				<!-- Text -->
+					
+
+				<!-- Recent Posts -->
+				
+				<!-- Recent Comments -->
+					
+				<!-- Calendar -->
+					
+				<!-- Copyright -->
+					
+			</div>
+
+		
+	</body>
+</html>
